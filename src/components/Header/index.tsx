@@ -31,7 +31,6 @@ import Settings from '../Settings'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
-import ClaimModal from '../claim/ClaimModal'
 import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
 import { useUserHasAvailableClaim } from '../../state/claim/hooks'
 import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
@@ -287,6 +286,29 @@ const StyledLinkStyledButton = styled(LinkStyledButton).attrs({
   }
 `
 
+const StyledMenuContainer = styled.div`
+  padding-top: 10px;
+  position: absolute;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    min-width: 10.125rem;
+    right: 0;
+  `};
+`
+const StyledMenu = styled.div`
+  min-width: 10.125rem;
+  width: 100%;
+  background-color: ${({ theme }) => theme.bg2};
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 24px 32px rgba(0, 0, 0, 0.01);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  & > button {
+    margin: 6px;
+  }
+`
+
 const NETWORK_LABELS: { [chainId in ChainId]: string | undefined } = {
   
   [ChainId.MUMBAI]: 'Mumbai',
@@ -303,7 +325,6 @@ export default function Header() {
       apiKey: '258960cf-1e17-4419-bf7f-77443282f5da',  // Your API Key
       environment: 'PRODUCTION', // STAGING/PRODUCTION
       defaultCryptoCurrency: 'MATIC',
-      disablePaymentMethods: 'credit_debit_card',
       walletAddress: account, // Your customer's wallet address
       themeColor: '2891f9', // App theme color
       redirectURL: 'window.location.origin',
@@ -374,12 +395,32 @@ export default function Header() {
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
+  const [widgetMenuOpen, setWidgetMenuOpen] = useState(false)
+  const [buyMenuOpen, setBuyMenuOpen] = useState(false)
+  const [showMoonPayWidget, setShowMoonPayWidget] = useState(false)
+
+  const[bridgeMenuOpen, setBridgeMenuOpen] = useState(false)
+
+
   return (
     <HeaderFrame>
       
-      <ClaimModal />
       <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
         <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
+      </Modal>
+      <Modal isOpen={showMoonPayWidget} onDismiss={() => setShowMoonPayWidget(false)}>
+        <div style={{ height: '100%', width: '100%', overflowY: 'auto'}}>
+          <iframe
+            title="moonpay"
+            allow="accelerometer; autoplay; camera; gyroscope; payment"
+            frameBorder="0"
+            height="600px"
+            src="https://buy.moonpay.com?apiKey=pk_live_72EGoobLnlgc8WB7AaxyiWu2S43dj8eY"
+            width="100%"
+          >
+            <p>Your browser does not support iframes.</p>
+          </iframe>
+        </div>
       </Modal>
       <HeaderRow>
         <Title href="." >
@@ -393,13 +434,16 @@ export default function Header() {
           </UniIcon>
         </Title>
         <HeaderLinks>
-          <StyledNavLink id={`swap-nav-link`} to={'/swap'} style={{marginLeft: mobile?'12px':'12px', marginRight: mobile?'px':'12px'}}>
+          <StyledNavLink id={`swap-nav-link`} to={'/swap'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('swap')}
           </StyledNavLink>
+          {!mobile && (chainId === ChainId.MATIC) && <StyledNavLink id={`limit-order-nav-link`} to={'/limit-order'} style={{marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Limit Order')}
+          </StyledNavLink>}
           <StyledNavLink
             id={`pool-nav-link`}
             to={'/pool'}
-            style={{marginLeft: mobile?'0px':'12px'}}
+            style={{marginLeft: mobile ? '8px':'12px'}}
             isActive={(match, { pathname }) =>
               Boolean(match) ||
               pathname.startsWith('/add') ||
@@ -410,24 +454,52 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/quick'} style={{marginLeft: mobile?'0px':'12px'}}>
-          Rewards
-          </StyledNavLink>
+          { (chainId === ChainId.MATIC) && 
+            <div style={{ position: 'relative' }} onMouseEnter={() => {setWidgetMenuOpen(true)}} onMouseLeave={() => {setWidgetMenuOpen(false)}}><StyledLinkStyledButton id={`stake-nav-link-00`} onClick={() => {setWidgetMenuOpen(!widgetMenuOpen)}} style={{margin: '0px', padding: '0px', marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
+              Farms
+            </StyledLinkStyledButton>
+          
+              {widgetMenuOpen && (
+                <StyledMenuContainer>
+                  <StyledMenu>
+                    <StyledNavLink id={`stake-nav-link-LP`} to={'/quick'} >LP Mining</StyledNavLink>
+                    <StyledNavLink id={`stake-nav-link-LP`} to={'/dual'} style={{marginTop: 10}}>Dual Mining</StyledNavLink>
+                    <StyledNavLink id={`stake-nav-link-DS`} to={'/syrup'} style={{marginTop: 10}}>Dragon's Syrup</StyledNavLink>
+                  </StyledMenu>
+                </StyledMenuContainer>   
+              )}
+            </div>
+          }
+
           {/*<StyledNavLink id={`stake-nav-link`} to={'/vote'}>*/}
             {/*Vote*/}
           {/*</StyledNavLink>*/}
-          <StyledExternalLink id={`stake-nav-link`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'0px':'12px'}}>
+          <StyledExternalLink id={`stake-nav-link-01`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'8px':'12px', marginRight: mobile?'0px':'12px'}}>
             Charts {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
           </StyledExternalLink>
-
-          {account && <StyledLinkStyledButton id={`stake-nav-link`} onClick={()=>{initiateTransak(account)}} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'4px':'12px'}}>
-            Buy
-          </StyledLinkStyledButton>}
-
-          <StyledExternalLink id={`startido-nav-link`} href={'https://idos.starter.xyz/quickstart'} style={{marginLeft: mobile?'12px':'12px', marginRight: mobile?'4px':'12px'}}>
+          <StyledNavLink id={`convert-nav-link`} to={'/convert'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Convert')}
+          </StyledNavLink>
+          {!mobile &&(chainId === ChainId.MATIC) && 
+          <div style={{ position: 'relative' }} onMouseEnter={() => {setBuyMenuOpen(true)}} onMouseLeave={() => {setBuyMenuOpen(false)}}>
+            <StyledLinkStyledButton id={`stake-nav-link`} onClick={() => {setBuyMenuOpen(true)}} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'4px':'12px'}}>
+              Buy
+            </StyledLinkStyledButton>
+          {buyMenuOpen && (
+            <StyledMenuContainer>
+              <StyledMenu>
+                <StyledLinkStyledButton onClick={()=>{initiateTransak(account)}}>Transak</StyledLinkStyledButton>
+                <StyledLinkStyledButton onClick={()=>{setShowMoonPayWidget(true)}}>MoonPay</StyledLinkStyledButton>
+              </StyledMenu>
+            </StyledMenuContainer>   
+          )}
+          </div>
+        }
+        {/**(chainId === ChainId.MATIC) &&
+          <StyledExternalLink id={`startido-nav-link-03`} href={'https://idos.starter.xyz/quickstart'} style={{marginLeft: mobile?'4px':'12px', marginRight: mobile?'0px':'12px'}}>
             IDO {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
-          </StyledExternalLink>
-          
+          </StyledExternalLink>*/
+        }
           
         </HeaderLinks>
       </HeaderRow>
@@ -439,11 +511,22 @@ export default function Header() {
               
             )}
           </HideSmall>
+          {(chainId === ChainId.MATIC) &&
           <HideSmall>
-            <StyledExternalLink id={`stake-nav-link`} href={'https://wallet.matic.network/'} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'0px':'12px'}}>
-                Bridge Assets {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
-              </StyledExternalLink>
-          </HideSmall>
+          <span style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'0px':'12px'}} onMouseEnter={() => {setBridgeMenuOpen(true)}} onMouseLeave={() => {setBridgeMenuOpen(false)}}><StyledLinkStyledButton id={`bridge-nav-link`} onClick={() => {setBridgeMenuOpen(!widgetMenuOpen)}} style={{margin: '0px', padding: '0px', marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            Bridge
+          </StyledLinkStyledButton>
+          {bridgeMenuOpen && (
+            <StyledMenuContainer>
+              <StyledMenu>
+                <StyledExternalLink id={`bridge-nav-link-pos`} href={'https://wallet.polygon.technology/'} >Matic PoS</StyledExternalLink>
+                <StyledExternalLink id={`bridge-nav-link-relay`} href={'https://app.relaychain.com/#/transfer'} style={{marginTop: 10}}>Relay</StyledExternalLink>
+                <StyledExternalLink id={`bridge-nav-link-sol`} href={'https://app.allbridge.io/bridge?from=SOL&to=POL&asset=APYS'} style={{marginTop: 10}}>Sol</StyledExternalLink>
+              </StyledMenu>
+            </StyledMenuContainer>   
+          )}
+          </span>
+          </HideSmall>}
           {availableClaim && !showClaimPopup && (
             <UNIWrapper onClick={toggleClaimModal}>
               <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>

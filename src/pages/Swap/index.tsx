@@ -181,11 +181,13 @@ export default function Swap() {
     if (!swapCallback) {
       return
     }
-    setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
-    swapCallback()
-      .then(hash => {
-        setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: hash })
 
+    setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
+    swapCallback(
+      { attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined },
+      setSwapState
+    )
+      .then(async(response) => {
         ReactGA.event({
           category: 'Swap',
           action:
@@ -261,8 +263,8 @@ export default function Swap() {
         method: 'wallet_addEthereumChain',
         params: [{
           "chainId": "0x89",
-          "chainName": "Matic Network",
-          "rpcUrls": ["https://polygon.llamarpc.com	"],
+          "chainName": "Polygon Mainnet",
+          "rpcUrls": ["https://polygon-rpc.com/"],
           "iconUrls": [
             "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png"
           ],

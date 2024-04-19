@@ -10,14 +10,19 @@ import { HashRouter } from 'react-router-dom'
 import { NetworkContextName } from './constants'
 import './i18n'
 import App from './pages/App'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import store from './state'
-import ApplicationUpdater from './state/application/updater'
 import ListsUpdater from './state/lists/updater'
+import ApplicationUpdater from './state/application/updater'
 import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
 import getLibrary from './utils/getLibrary'
+
+import { GelatoProvider } from '@gelatonetwork/limit-orders-react'
+import { useActiveWeb3React } from './hooks'
+import { useWalletModalToggle } from './state/application/hooks'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
@@ -64,6 +69,25 @@ function Updaters() {
   )
 }
 
+function Gelato({ children }: { children?: React.ReactNode }) {
+  const { library, chainId, account } = useActiveWeb3React()
+  const toggleWalletModal = useWalletModalToggle()
+
+  return (
+    <GelatoProvider
+      library={library}
+      chainId={chainId}
+      account={account ?? undefined}
+      handler={'quickswap'}
+      toggleWalletModal={toggleWalletModal}
+      useDefaultTheme={false}
+    >
+      {children}
+    </GelatoProvider>
+  )
+}
+
+
 ReactDOM.render(
   <StrictMode>
     <FixedGlobalStyle />
@@ -74,7 +98,9 @@ ReactDOM.render(
           <ThemeProvider>
             <ThemedGlobalStyle />
             <HashRouter>
-              <App />
+              <Gelato>
+                <App />
+              </Gelato>
             </HashRouter>
           </ThemeProvider>
         </Provider>
@@ -83,3 +109,8 @@ ReactDOM.render(
   </StrictMode>,
   document.getElementById('root')
 )
+
+if (process.env.REACT_APP_SERVICE_WORKER !== 'false') {
+  serviceWorkerRegistration.register()
+}
+

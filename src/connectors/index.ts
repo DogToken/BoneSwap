@@ -1,6 +1,7 @@
 import { Web3Provider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { LedgerConnector } from '@web3-react/ledger-connector'
 import { WalletLinkConnector } from './WalletLink'
 import { PortisConnector } from './Portis'
 
@@ -8,8 +9,11 @@ import { FortmaticConnector } from './Fortmatic'
 import { ArkaneConnector } from './Arkane'
 import { NetworkConnector } from './NetworkConnector'
 import { SafeAppConnector } from './SafeApp'
+import { BitskiConnector } from './bitski'
 
-const NETWORK_URL = 'https://matic-mainnet--jsonrpc.datahub.figment.io/apikey/73088fa3ab15c735a4efb389a05ebdfc'
+const POLLING_INTERVAL = 12000
+
+const NETWORK_URL = 'https://polygon-rpc.com/'
 // const FORMATIC_KEY = 'pk_live_F937DF033A1666BF'
 // const PORTIS_ID = 'c0e2bf01-4b08-4fd5-ac7b-8e26b58cd236'
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
@@ -22,7 +26,10 @@ if (typeof NETWORK_URL === 'undefined') {
 }
 
 export const network = new NetworkConnector({
-  urls: { [Number("137")]: "https://matic-mainnet--jsonrpc.datahub.figment.io/apikey/73088fa3ab15c735a4efb389a05ebdfc" }
+  urls: { 
+    [Number("137")]: "https://polygon-rpc.com/"
+
+  }
 })
 
 let networkLibrary: Web3Provider | undefined
@@ -35,6 +42,12 @@ export const injected = new InjectedConnector({
 })
 
 export const safeApp = new SafeAppConnector()
+
+export const bitski = new BitskiConnector({
+  clientId: 'f3fd6cc0-6b0b-4dcf-9b1f-e6c94451e2ba',
+  chainId: 137,
+  callbackUrl: 'https://quickswap.exchange/callback.html'
+})
 
 // mainnet only
 export const walletconnect = new WalletConnectConnector({
@@ -69,8 +82,11 @@ export const portis = new PortisConnector({
 // mainnet only
 export const walletlink = new WalletLinkConnector({
   url: NETWORK_URL,
-  appName: 'Uniswap',
+  appName: 'QuickSwap',
   appLogoUrl:
     'https://mpng.pngfly.com/20181202/bex/kisspng-emoji-domain-unicorn-pin-badges-sticker-unicorn-tumblr-emoji-unicorn-iphoneemoji-5c046729264a77.5671679315437924251569.jpg',
   supportedChainIds: [137]
 })
+
+export const ledger = new LedgerConnector({ chainId: 137, url: NETWORK_URL, pollingInterval: POLLING_INTERVAL })
+

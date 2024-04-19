@@ -1,5 +1,22 @@
 import gql from 'graphql-tag'
 
+export const SUBGRAPH_HEALTH = gql`
+  query health {
+    indexingStatusForCurrentVersion(subgraphName: "sameepsi/quickswap06") {
+      synced
+      health
+      chains {
+        chainHeadBlock {
+          number
+        }
+        latestBlock {
+          number
+        }
+      }
+    }
+  }
+`
+
 export const TOKEN_CHART = gql`
   query tokenDayDatas($tokenAddr: String!) {
     tokenDayDatas(first: 1, orderBy: date, orderDirection: desc, where: { token: $tokenAddr }) {
@@ -76,3 +93,36 @@ export const PAIR_DATA = (pairAddress, block) => {
     }`
   return gql(queryString)
 }
+
+export const GLOBAL_DATA = (block) => {
+  const queryString = ` query uniswapFactories {
+      uniswapFactories(
+       ${block ? `block: { number: ${block}}` : ``} 
+       where: { id: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32" }) {
+        id
+        totalVolumeUSD
+        totalVolumeETH
+        untrackedVolumeUSD
+        totalLiquidityUSD
+        totalLiquidityETH
+        txCount
+        pairCount
+      }
+    }`
+  return gql(queryString)
+}
+
+export const GET_BLOCK = gql`
+  query blocks($timestampFrom: Int!, $timestampTo: Int!) {
+    blocks(
+      first: 1
+      orderBy: timestamp
+      orderDirection: asc
+      where: { timestamp_gt: $timestampFrom, timestamp_lt: $timestampTo }
+    ) {
+      id
+      number
+      timestamp
+    }
+  }
+`;
