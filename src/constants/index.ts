@@ -439,7 +439,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
 // TODO: specify merkle distributor for mainnet
 export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.MATIC]: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
-  [ChainId.MUMBAI]: '0x8954AfA98594b838bda56FE4C12a09D7739D179b'
+  [ChainId.MUMBAI]: '0x4F9E902BB622D4920C0101D4c227BE53213a1A9f'
 }
 
 // TODO: specify merkle distributor for mainnet
