@@ -437,9 +437,9 @@ export default function Header() {
           <StyledNavLink id={`swap-nav-link`} to={'/swap'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('swap')}
           </StyledNavLink>
-          {!mobile && (chainId === ChainId.MATIC) && <StyledNavLink id={`limit-order-nav-link`} to={'/limit-order'} style={{marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
+          {/* {!mobile && (chainId === ChainId.MATIC) && <StyledNavLink id={`limit-order-nav-link`} to={'/limit-order'} style={{marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('Limit Order')}
-          </StyledNavLink>}
+          </StyledNavLink>} */}
           <StyledNavLink
             id={`pool-nav-link`}
             to={'/pool'}
