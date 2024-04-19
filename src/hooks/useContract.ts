@@ -31,22 +31,22 @@ const sProviders = new Array();
 
 const rpcUrls = [
   //"https://nd-995-891-194.p2pify.com/58d3a2349fd1d7d909ee1a51d76cfdbf",
-  "https://matic-mainnet--jsonrpc.datahub.figment.io/apikey/73088fa3ab15c735a4efb389a05ebdfc/",
-  "https://rpc-quickswap-do1-mainnet.maticvigil.com/v1/f11d33ea6df187c24fe994283187a4bedb086d45",
-  "https://matic-mainnet--jsonrpc.datahub.figment.io/apikey/73088fa3ab15c735a4efb389a05ebdfc/",
+  "https://polygon.llamarpc.com	",
+  "https://polygon-mainnet.public.blastapi.io",
+  "https://polygon.meowrpc.com",
   //"https://rpc-quickswap-mainnet.maticvigil.com/v1/f11d33ea6df187c24fe994283187a4bedb086d45",
-  "https://nd-995-891-194.p2pify.com/58d3a2349fd1d7d909ee1a51d76cfdbf",
-  "https://matic-mainnet.chainstacklabs.com",
-  "https://shy-black-meadow.matic.quiknode.pro/aa57c5692641e98d1002a9dfeea7eb6438aa7937/",
-  "https://nd-995-891-194.p2pify.com/58d3a2349fd1d7d909ee1a51d76cfdbf",
-  "https://polygon-mainnet.g.alchemy.com/v2/jcLAFnx-j2TVrDjgVOGD8zUybSUL222R"
+  "https://gateway.tenderly.co/public/polygon	",
+  "https://1rpc.io/matic	",
+  "https://polygon-rpc.com",
+  "https://polygon-pokt.nodies.app	",
+  "https://polygon-mainnet.infura.io/v3/4d3f7aeffe5f4a3cbdeb2e6dfa99db91"
   //"https://rpc-mainnet.matic.network",
   //"https://quick.slingshot.finance"
   
 ]
 
 const sRpcs = [
-  "https://polygon-mainnet.g.alchemy.com/v2/jcLAFnx-j2TVrDjgVOGD8zUybSUL222R"
+  "https://polygon-mainnet.infura.io/v3/4d3f7aeffe5f4a3cbdeb2e6dfa99db91"
 ]
 
 var lastUsedUrl = -1;
