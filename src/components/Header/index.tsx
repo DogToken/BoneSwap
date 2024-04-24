@@ -396,7 +396,7 @@ export default function Header() {
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
   const [widgetMenuOpen, setWidgetMenuOpen] = useState(false)
-  const [buyMenuOpen, setBuyMenuOpen] = useState(false)
+/*   const [buyMenuOpen, setBuyMenuOpen] = useState(false) */
   const [showMoonPayWidget, setShowMoonPayWidget] = useState(false)
 
   const[bridgeMenuOpen, setBridgeMenuOpen] = useState(false)
