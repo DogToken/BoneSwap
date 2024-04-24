@@ -396,7 +396,7 @@ export default function Header() {
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
   const [widgetMenuOpen, setWidgetMenuOpen] = useState(false)
-/*   const [buyMenuOpen, setBuyMenuOpen] = useState(false) */
+  const [buyMenuOpen, setBuyMenuOpen] = useState(false)
   const [showMoonPayWidget, setShowMoonPayWidget] = useState(false)
 
   const[bridgeMenuOpen, setBridgeMenuOpen] = useState(false)
@@ -464,7 +464,7 @@ export default function Header() {
                   <StyledMenu>
                     <StyledNavLink id={`stake-nav-link-LP`} to={'/quick'} >LP Mining</StyledNavLink>
                     <StyledNavLink id={`stake-nav-link-LP`} to={'/dual'} style={{marginTop: 10}}>Dual Mining</StyledNavLink>
-                    <StyledNavLink id={`stake-nav-link-DS`} to={'/syrup'} style={{marginTop: 10}}>Dragon's Syrup</StyledNavLink>
+                    {/* <StyledNavLink id={`stake-nav-link-DS`} to={'/syrup'} style={{marginTop: 10}}>Dragon's Syrup</StyledNavLink> */}
                   </StyledMenu>
                 </StyledMenuContainer>   
               )}
@@ -474,12 +474,12 @@ export default function Header() {
           {/*<StyledNavLink id={`stake-nav-link`} to={'/vote'}>*/}
             {/*Vote*/}
           {/*</StyledNavLink>*/}
-          <StyledExternalLink id={`stake-nav-link-01`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'8px':'12px', marginRight: mobile?'0px':'12px'}}>
+          {/* <StyledExternalLink id={`stake-nav-link-01`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'8px':'12px', marginRight: mobile?'0px':'12px'}}>
             Charts {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
           </StyledExternalLink>
           <StyledNavLink id={`convert-nav-link`} to={'/convert'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('Convert')}
-          </StyledNavLink>
+          </StyledNavLink> */}
           {!mobile &&(chainId === ChainId.MATIC) && 
           <div style={{ position: 'relative' }} onMouseEnter={() => {setBuyMenuOpen(true)}} onMouseLeave={() => {setBuyMenuOpen(false)}}>
             <StyledLinkStyledButton id={`stake-nav-link`} onClick={() => {setBuyMenuOpen(true)}} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'4px':'12px'}}>
@@ -489,7 +489,7 @@ export default function Header() {
             <StyledMenuContainer>
               <StyledMenu>
                 <StyledLinkStyledButton onClick={()=>{initiateTransak(account)}}>Transak</StyledLinkStyledButton>
-                <StyledLinkStyledButton onClick={()=>{setShowMoonPayWidget(true)}}>MoonPay</StyledLinkStyledButton>
+                {/* <StyledLinkStyledButton onClick={()=>{setShowMoonPayWidget(true)}}>MoonPay</StyledLinkStyledButton> */}
               </StyledMenu>
             </StyledMenuContainer>   
           )}
@@ -519,9 +519,9 @@ export default function Header() {
           {bridgeMenuOpen && (
             <StyledMenuContainer>
               <StyledMenu>
-                <StyledExternalLink id={`bridge-nav-link-pos`} href={'https://wallet.polygon.technology/'} >Matic PoS</StyledExternalLink>
-                <StyledExternalLink id={`bridge-nav-link-relay`} href={'https://app.relaychain.com/#/transfer'} style={{marginTop: 10}}>Relay</StyledExternalLink>
-                <StyledExternalLink id={`bridge-nav-link-sol`} href={'https://app.allbridge.io/bridge?from=SOL&to=POL&asset=APYS'} style={{marginTop: 10}}>Sol</StyledExternalLink>
+                <StyledExternalLink id={`bridge-nav-link-pos`} href={'https://bridge.dogswap.online/'} >MINTME</StyledExternalLink>
+{/*                 <StyledExternalLink id={`bridge-nav-link-relay`} href={'https://app.relaychain.com/#/transfer'} style={{marginTop: 10}}>Relay</StyledExternalLink>
+                <StyledExternalLink id={`bridge-nav-link-sol`} href={'https://app.allbridge.io/bridge?from=SOL&to=POL&asset=APYS'} style={{marginTop: 10}}>Sol</StyledExternalLink> */}
               </StyledMenu>
             </StyledMenuContainer>   
           )}
@@ -531,7 +531,7 @@ export default function Header() {
             <UNIWrapper onClick={toggleClaimModal}>
               <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 <TYPE.white padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming QUICK</Dots> : 'Claim QUICK'}
+                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming DOG</Dots> : 'Claim DOG'}
                 </TYPE.white>
               </UNIAmount>
               <CardNoise />
@@ -558,7 +558,7 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                QUICK
+                DOG
               </UNIAmount>
               <CardNoise />
             </UNIWrapper>
