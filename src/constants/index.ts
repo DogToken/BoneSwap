@@ -439,7 +439,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
 // TODO: specify merkle distributor for mainnet
 export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.MATIC]: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
-  [ChainId.MUMBAI]: '0x4F9E902BB622D4920C0101D4c227BE53213a1A9f'
+  [ChainId.MUMBAI]: '0x4F9E902BB622D4920C0101D4c227BE53213a1A9f' //UPDATED TO PERSONAL
 }
 
 // TODO: specify merkle distributor for mainnet
@@ -612,4 +612,4 @@ export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16))
 export const BETTER_TRADE_LINK_THRESHOLD = new Percent(JSBI.BigInt(75), JSBI.BigInt(10000))
 
 // the Uniswap Default token list lives here
-export const DEFAULT_TOKEN_LIST_URL = 'https://unpkg.com/quickswap-default-token-list@latest/build/quickswap-default.tokenlist.json'
+export const DEFAULT_TOKEN_LIST_URL = 'https://gist.githubusercontent.com/DogToken/101254cbf60d479b334cae4fb4d471a0/raw/b702a964d4627f6e33259997eeaae011d9c6ed73/default.tokenlist.json'
