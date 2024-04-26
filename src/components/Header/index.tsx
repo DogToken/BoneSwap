@@ -5,15 +5,12 @@ import { NavLink } from 'react-router-dom'
 import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
 import { isMobile, isAndroid, isIOS } from 'react-device-detect'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../state/index'
 
 // @ts-ignore
 import transakSDK from '@transak/transak-sdk'
 //import { useTransactionAdder } from '../../state/transactions/hooks'
 
 import styled from 'styled-components'
-import { addPopup } from '../../state/application/actions'
 
 import Logo from '../../assets/images/QuickSwap_logo.png';
 import LogoMobile from '../../assets/images/logo_circle.png';
@@ -317,8 +314,8 @@ const NETWORK_LABELS: { [chainId in ChainId]: string | undefined } = {
 
 export default function Header() {
 
-  const dispatch = useDispatch<AppDispatch>()
-  const initiateTransak = (account: any) => {
+  /*const dispatch = useDispatch<AppDispatch>()
+   const initiateTransak = (account: any) => {
     
     
     let transak = new transakSDK({
@@ -352,7 +349,7 @@ export default function Header() {
       console.log(orderData);
       transak.close();
     });
-  }
+  } */
   
   const { account, chainId } = useActiveWeb3React()
 
@@ -395,8 +392,7 @@ export default function Header() {
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
-  const [widgetMenuOpen, setWidgetMenuOpen] = useState(false)
-  const [buyMenuOpen, setBuyMenuOpen] = useState(false)
+  const [widgetMenuOpen] = useState(false)
   const [showMoonPayWidget, setShowMoonPayWidget] = useState(false)
 
   const[bridgeMenuOpen, setBridgeMenuOpen] = useState(false)
@@ -454,7 +450,9 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          { (chainId === ChainId.MATIC) && 
+
+
+          {/* { (chainId === ChainId.MATIC) && 
             <div style={{ position: 'relative' }} onMouseEnter={() => {setWidgetMenuOpen(true)}} onMouseLeave={() => {setWidgetMenuOpen(false)}}><StyledLinkStyledButton id={`stake-nav-link-00`} onClick={() => {setWidgetMenuOpen(!widgetMenuOpen)}} style={{margin: '0px', padding: '0px', marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
               Farms
             </StyledLinkStyledButton>
@@ -464,12 +462,19 @@ export default function Header() {
                   <StyledMenu>
                     <StyledNavLink id={`stake-nav-link-LP`} to={'/quick'} >LP Mining</StyledNavLink>
                     <StyledNavLink id={`stake-nav-link-LP`} to={'/dual'} style={{marginTop: 10}}>Dual Mining</StyledNavLink>
-                    {/* <StyledNavLink id={`stake-nav-link-DS`} to={'/syrup'} style={{marginTop: 10}}>Dragon's Syrup</StyledNavLink> */}
+                    <StyledNavLink id={`stake-nav-link-DS`} to={'/syrup'} style={{marginTop: 10}}>Dragon's Syrup</StyledNavLink>
                   </StyledMenu>
                 </StyledMenuContainer>   
               )}
             </div>
-          }
+          } */}
+
+          <StyledNavLink id={`swap-nav-link`} to={'/quick'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Stake')}
+          </StyledNavLink>
+          <StyledNavLink id={`swap-nav-link`} to={'/dual'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Farm')}
+          </StyledNavLink>
 
           {/*<StyledNavLink id={`stake-nav-link`} to={'/vote'}>*/}
             {/*Vote*/}
@@ -479,7 +484,7 @@ export default function Header() {
           </StyledExternalLink>
           <StyledNavLink id={`convert-nav-link`} to={'/convert'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('Convert')}
-          </StyledNavLink> */}
+          </StyledNavLink> 
           {!mobile &&(chainId === ChainId.MATIC) && 
           <div style={{ position: 'relative' }} onMouseEnter={() => {setBuyMenuOpen(true)}} onMouseLeave={() => {setBuyMenuOpen(false)}}>
             <StyledLinkStyledButton id={`stake-nav-link`} onClick={() => {setBuyMenuOpen(true)}} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'4px':'12px'}}>
@@ -489,12 +494,12 @@ export default function Header() {
             <StyledMenuContainer>
               <StyledMenu>
                 <StyledLinkStyledButton onClick={()=>{initiateTransak(account)}}>Transak</StyledLinkStyledButton>
-                {/* <StyledLinkStyledButton onClick={()=>{setShowMoonPayWidget(true)}}>MoonPay</StyledLinkStyledButton> */}
+                <StyledLinkStyledButton onClick={()=>{setShowMoonPayWidget(true)}}>MoonPay</StyledLinkStyledButton>
               </StyledMenu>
             </StyledMenuContainer>   
           )}
           </div>
-        }
+        } */}
         {/**(chainId === ChainId.MATIC) &&
           <StyledExternalLink id={`startido-nav-link-03`} href={'https://idos.starter.xyz/quickstart'} style={{marginLeft: mobile?'4px':'12px', marginRight: mobile?'0px':'12px'}}>
             IDO {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
@@ -513,6 +518,7 @@ export default function Header() {
           </HideSmall>
           {(chainId === ChainId.MATIC) &&
           <HideSmall>
+            
           <span style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'0px':'12px'}} onMouseEnter={() => {setBridgeMenuOpen(true)}} onMouseLeave={() => {setBridgeMenuOpen(false)}}><StyledLinkStyledButton id={`bridge-nav-link`} onClick={() => {setBridgeMenuOpen(!widgetMenuOpen)}} style={{margin: '0px', padding: '0px', marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
             Bridge
           </StyledLinkStyledButton>
