@@ -2,7 +2,7 @@ import { TokenAmount } from '@uniswap/sdk'
 import React, { useEffect } from 'react'
 import { X } from 'react-feather'
 import styled, { keyframes } from 'styled-components'
-import tokenLogo from '../../assets/images/quick_logo.jpeg'
+import tokenLogo from '../../assets/images/dog_logo.png'
 import { ButtonPrimary } from '../../components/Button'
 import { useActiveWeb3React } from '../../hooks'
 import { ApplicationModal } from '../../state/application/actions'
@@ -19,7 +19,7 @@ import { AutoColumn } from '../Column'
 import { CardBGImage, CardNoise } from '../earn/styled'
 
 const StyledClaimPopup = styled(AutoColumn)`
-  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #0A1647 0%, #021d43 100%);
+  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #0a1647 0%, #021d43 100%);
   border-radius: 20px;
   padding: 1.5rem;
   overflow: hidden;

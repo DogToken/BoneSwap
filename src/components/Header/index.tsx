@@ -7,13 +7,13 @@ import { useTranslation } from 'react-i18next'
 import { isMobile, isAndroid, isIOS } from 'react-device-detect'
 
 // @ts-ignore
-import transakSDK from '@transak/transak-sdk'
+//import transakSDK from '@transak/transak-sdk'
 //import { useTransactionAdder } from '../../state/transactions/hooks'
 
 import styled from 'styled-components'
 
 import Logo from '../../assets/images/DogSwap_logo.png';
-import LogoMobile from '../../assets/images/logo_circle.png';
+import LogoMobile from '../../assets/images/dogswap.png';
 //import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks'
 //import { useDarkModeManager } from '../../state/user/hooks'

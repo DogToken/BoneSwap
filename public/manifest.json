@@ -4,24 +4,24 @@
   "homepage_url": "https://quickswap.exchange",
   "icons": [
     {
-      "src": "./logo_circle.png",
+      "src": "./dogswap.png",
       "sizes": "50x150",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./logo_circle.png",
+      "src": "./dogswap.png",
       "sizes": "50x50",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "orientation": "portrait",
-  "name": "QuickSwap",
-  "description": "QuickSwap",
-  "iconPath": "./logo_circle.png",
-  "short_name": "QuickSwap",
+  "name": "DogSwap",
+  "description": "DogSwap",
+  "iconPath": "./dogswap.png",
+  "short_name": "DogSwap",
   "start_url": ".",
   "theme_color": "#ff007a",
-  "providedBy": {"name": "QuickSwap", "url": "https://quickswap.exchange"}
+  "providedBy": {"name": "DogSwap", "url": "https://dogswap.online"}
 }
