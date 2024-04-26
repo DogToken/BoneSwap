@@ -12,7 +12,7 @@ import transakSDK from '@transak/transak-sdk'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/images/QuickSwap_logo.png';
+import Logo from '../../assets/images/DogSwap_logo.png';
 import LogoMobile from '../../assets/images/logo_circle.png';
 //import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks'
