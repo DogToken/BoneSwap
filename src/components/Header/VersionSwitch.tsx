@@ -71,6 +71,6 @@ export default function VersionSwitch() {
   return versionSwitchAvailable ? (
     toggle
   ) : (
-    <MouseoverTooltip text="This page is only compatible with QUICKSWAP.">{toggle}</MouseoverTooltip>
+    <MouseoverTooltip text="This page is only compatible with DOGSWAP.">{toggle}</MouseoverTooltip>
   )
 }

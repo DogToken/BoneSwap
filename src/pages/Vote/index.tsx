@@ -131,11 +131,11 @@ export default function Vote() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>QUICK Governance</TYPE.white>
+                <TYPE.white fontWeight={600}>DogSwap Governance</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                QUICK tokens represent voting shares in QUICKSWAP governance. You can vote on each proposal yourself or
+                DOG tokens represent voting shares in DogSwap governance. You can vote on each proposal yourself or
                   delegate your votes to a third party.
                 </TYPE.white>
               </RowBetween>
@@ -224,7 +224,7 @@ export default function Vote() {
         })}
       </TopSection>
       <TYPE.subHeader color="text3">
-        A minimum threshhold of 1% of the total QUICK supply is required to submit proposals
+        A minimum threshhold of 1% of the total DOG supply is required to submit proposals
       </TYPE.subHeader>
     </PageWrapper>
   )

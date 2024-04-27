@@ -170,7 +170,7 @@ export default function SyrupCard({ syrupInfo, isOld }: { syrupInfo: SyrupInfo, 
             <TYPE.white>
               {syrupInfo?.valueOfTotalStakedAmountInUSDC
                 ? `$${thousands_separators(syrupInfo?.valueOfTotalStakedAmountInUSDC)}`
-                : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} QUICK`}
+                : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} DOG`}
             </TYPE.white>
           </RowBetween>
           <RowBetween>
@@ -214,11 +214,11 @@ export default function SyrupCard({ syrupInfo, isOld }: { syrupInfo: SyrupInfo, 
       {syrupInfo?.ended && (
         <StatContainer>
         <RowBetween>
-          <TYPE.white> dQUICK Deposits</TYPE.white>
+          <TYPE.white> sDOG Deposits</TYPE.white>
           <TYPE.white>
             {syrupInfo?.valueOfTotalStakedAmountInUSDC
               ? `$${thousands_separators(syrupInfo?.valueOfTotalStakedAmountInUSDC)}`
-              : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} dQUICK`}
+              : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} sDOG`}
           </TYPE.white>
         </RowBetween>
         <RowBetween>

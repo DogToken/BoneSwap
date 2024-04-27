@@ -86,19 +86,19 @@ export default function ClaimPopup() {
           <AutoColumn style={{ padding: '2rem 0', zIndex: 10 }} justify="center">
             <UniToken width="48px" src={tokenLogo} />{' '}
             <TYPE.white style={{ marginTop: '1rem' }} fontSize={36} fontWeight={600}>
-              {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} QUICK
+              {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} DOG
             </TYPE.white>
             <TYPE.white style={{ paddingTop: '1.25rem', textAlign: 'center' }} fontWeight={600} color="white">
               <span role="img" aria-label="party">
                 🎉
               </span>{' '}
-              QUICK has arrived{' '}
+              DOG has arrived{' '}
               <span role="img" aria-label="party">
                 🎉
               </span>
             </TYPE.white>
             <TYPE.subHeader style={{ paddingTop: '0.5rem', textAlign: 'center' }} color="white">
-              {`Thanks for being part of the QUICKSWAP community <3`}
+              {`Thanks for being part of the DOGSWAP community <3`}
             </TYPE.subHeader>
           </AutoColumn>
           <AutoColumn style={{ zIndex: 10 }} justify="center">

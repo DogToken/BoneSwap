@@ -82,7 +82,7 @@ export default function StakingModal({ isOpen, onDismiss, syrupInfo, userLiquidi
 
   const stakingContract = useStakingContract(syrupInfo.stakingRewardAddress)
   async function onStake() {
-    const summary = isQuickStakingToken ? 'Deposit QUICK' : 'Deposit dQUICK';
+    const summary = isQuickStakingToken ? 'Deposit DOG' : 'Deposit sDOG';
 
     setAttempting(true)
     if (stakingContract && parsedAmount && deadline) {
@@ -206,7 +206,7 @@ export default function StakingModal({ isOpen, onDismiss, syrupInfo, userLiquidi
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Depositing tokens</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} {isQuickStakingToken ? 'QUICK' : 'dQUICK'}</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} {isQuickStakingToken ? 'DOG' : 'sDOG'}</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -214,7 +214,7 @@ export default function StakingModal({ isOpen, onDismiss, syrupInfo, userLiquidi
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} {isQuickStakingToken ? 'QUICK' : 'dQUICK'}</TYPE.body>
+            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} {isQuickStakingToken ? 'DOG' : 'sDOG'}</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

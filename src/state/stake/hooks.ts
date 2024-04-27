@@ -110,11 +110,11 @@ export const OLD_SYRUP_REWARDS_INFO: {
       token: QUICK,
       stakingRewardAddress: '0xD479406F55C4B2C3976C5EC1a41347CA6Ac90128',
       ended: false,
-      lp: '',
-      name: '',
-      baseToken: ETHER,
-      rate: 3333.33,
-      ending: 2534700689,
+      lp: '0xDf33126f2906013e79F58b250AD719b072ac2738',
+      name: 'xBONE',
+      baseToken: XBONE,
+      rate: 25,
+      ending: 1722108689,
       stakingToken: XBONE
     },  
     {

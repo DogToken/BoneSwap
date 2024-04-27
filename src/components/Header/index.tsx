@@ -20,7 +20,7 @@ import { useActiveWeb3React } from '../../hooks'
 import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE, ExternalLink, LinkStyledButton } from '../../theme'
+import { TYPE, ExternalLink } from '../../theme'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
@@ -256,54 +256,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   :focus {
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
-`
 
-const StyledLinkStyledButton = styled(LinkStyledButton).attrs({
-  activeClassName
-})<{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text2};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
-  &.${activeClassName} {
-    border-radius: 12px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text1};
-  }
-  :hover,
-  :focus {
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
-`
-
-const StyledMenuContainer = styled.div`
-  padding-top: 10px;
-  position: absolute;
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    min-width: 10.125rem;
-    right: 0;
-  `};
-`
-const StyledMenu = styled.div`
-  min-width: 10.125rem;
-  width: 100%;
-  background-color: ${({ theme }) => theme.bg2};
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-    0px 24px 32px rgba(0, 0, 0, 0.01);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  & > button {
-    margin: 6px;
-  }
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | undefined } = {
@@ -392,11 +345,7 @@ export default function Header() {
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
-  const [widgetMenuOpen] = useState(false)
   const [showMoonPayWidget, setShowMoonPayWidget] = useState(false)
-
-  const[bridgeMenuOpen, setBridgeMenuOpen] = useState(false)
-
 
   return (
     <HeaderFrame>
@@ -478,9 +427,9 @@ export default function Header() {
           <StyledNavLink id={`swap-nav-link`} to={'/syrup'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
             {t('BallPark')}
           </StyledNavLink>
-          {/*<StyledNavLink id={`stake-nav-link`} to={'/vote'}>*/}
-            {/*Vote*/}
-          {/*</StyledNavLink>*/}
+          {/* <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
+            Vote
+          </StyledNavLink> */}
           {/* <StyledExternalLink id={`stake-nav-link-01`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'8px':'12px', marginRight: mobile?'0px':'12px'}}>
             Charts {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
           </StyledExternalLink>
@@ -517,20 +466,9 @@ export default function Header() {
           </HideSmall>
           {(chainId === ChainId.MATIC) &&
           <HideSmall>
-            
-          <span style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'0px':'12px'}} onMouseEnter={() => {setBridgeMenuOpen(true)}} onMouseLeave={() => {setBridgeMenuOpen(false)}}><StyledLinkStyledButton id={`bridge-nav-link`} onClick={() => {setBridgeMenuOpen(!widgetMenuOpen)}} style={{margin: '0px', padding: '0px', marginLeft: mobile ? '4px':'12px', marginRight: mobile ? '0px':'12px'}}>
-            Bridge
-          </StyledLinkStyledButton>
-          {bridgeMenuOpen && (
-            <StyledMenuContainer>
-              <StyledMenu>
-                <StyledExternalLink id={`bridge-nav-link-pos`} href={'https://bridge.dogswap.online/'} >MINTME</StyledExternalLink>
-{/*                 <StyledExternalLink id={`bridge-nav-link-relay`} href={'https://app.relaychain.com/#/transfer'} style={{marginTop: 10}}>Relay</StyledExternalLink>
-                <StyledExternalLink id={`bridge-nav-link-sol`} href={'https://app.allbridge.io/bridge?from=SOL&to=POL&asset=APYS'} style={{marginTop: 10}}>Sol</StyledExternalLink> */}
-              </StyledMenu>
-            </StyledMenuContainer>   
-          )}
-          </span>
+          <StyledExternalLink id={`bridge-nav-link`} href={'https://bridge.dogswap.online'} style={{marginLeft: mobile?'4px':'12px', marginRight: mobile?'0px':'12px'}}>
+            Bridge {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
+          </StyledExternalLink>  
           </HideSmall>}
           {availableClaim && !showClaimPopup && (
             <UNIWrapper onClick={toggleClaimModal}>
