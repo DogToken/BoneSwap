@@ -101,7 +101,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           )}
 
           {stakingInfo?.ended && <TYPE.subHeader style={{ textAlign: 'center' }}>
-            When you withdraw, your QUICK/dQUICK is claimed and your liquidity is removed from the mining pool.
+            When you withdraw, your DOG/dQUICK is claimed and your liquidity is removed from the mining pool.
           </TYPE.subHeader>}
           {!stakingInfo?.ended && <TYPE.subHeader style={{ textAlign: 'center' }}>
             When you withdraw, your dQUICK is claimed and your liquidity is removed from the mining pool.

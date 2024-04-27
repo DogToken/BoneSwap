@@ -7,7 +7,7 @@ import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import StakeUpdater from '../../state/stake/updater'
 import { ArrowWrapper, BottomGrouping, Wrapper } from '../../components/swap/styleds'
-import { CONVERTER_ADDRESS, QUICK, QUICKNEW } from '../../constants'
+import { CONVERTER_ADDRESS, QUICKNEW, QUICK } from '../../constants'
 import { ArrowDown } from 'react-feather'
 import { ThemeContext } from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
@@ -155,16 +155,16 @@ export default function Convert() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Convert QUICK</TYPE.white>
+                <TYPE.white fontWeight={600}>Convert DOG</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                Convert your QUICK(OLD) to QUICK(NEW)
+                Convert your DOG to BONES and receive 1000 BONES per DOG.
                 </TYPE.white>
               </RowBetween>{' '}
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                Conversion Rate: 1 QUICK(OLD) = 1000 QUICK(NEW)
+                Conversion Rate: 1 DOG = 1000 BONES
                 </TYPE.white>
               </RowBetween>
             </AutoColumn>
@@ -175,7 +175,7 @@ export default function Convert() {
       </TopSection>
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
         <DataRow style={{ alignItems: 'baseline' }}>
-          <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>Convert QUICK</TYPE.mediumHeader>
+          <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>Convert DOG</TYPE.mediumHeader>
           
         </DataRow>
 

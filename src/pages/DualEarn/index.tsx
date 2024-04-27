@@ -277,7 +277,7 @@ export default function Earn() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Quickswap DUAL liquidity mining</TYPE.white>
+                <TYPE.white fontWeight={600}>DogSwap DUAL liquidity mining</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>

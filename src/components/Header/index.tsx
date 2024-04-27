@@ -469,22 +469,21 @@ export default function Header() {
             </div>
           } */}
 
-          <StyledNavLink id={`swap-nav-link`} to={'/quick'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
-            {t('Stake')}
+          {/* <StyledNavLink id={`convert-nav-link`} to={'/convert'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Naps')}
+          </StyledNavLink>  */}
+          <StyledNavLink id={`swap-nav-link`} to={'/dquick'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('Sofa')}
           </StyledNavLink>
-          <StyledNavLink id={`swap-nav-link`} to={'/dual'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
-            {t('Farm')}
+          <StyledNavLink id={`swap-nav-link`} to={'/syrup'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
+            {t('BallPark')}
           </StyledNavLink>
-
           {/*<StyledNavLink id={`stake-nav-link`} to={'/vote'}>*/}
             {/*Vote*/}
           {/*</StyledNavLink>*/}
           {/* <StyledExternalLink id={`stake-nav-link-01`} href={'https://info.quickswap.exchange'} style={{marginLeft: mobile?'8px':'12px', marginRight: mobile?'0px':'12px'}}>
             Charts {!mobile && <span style={{ fontSize: '11px' }}>↗</span>}
           </StyledExternalLink>
-          <StyledNavLink id={`convert-nav-link`} to={'/convert'} style={{marginLeft: mobile ? '0px':'12px', marginRight: mobile ? '0px':'12px'}}>
-            {t('Convert')}
-          </StyledNavLink> 
           {!mobile &&(chainId === ChainId.MATIC) && 
           <div style={{ position: 'relative' }} onMouseEnter={() => {setBuyMenuOpen(true)}} onMouseLeave={() => {setBuyMenuOpen(false)}}>
             <StyledLinkStyledButton id={`stake-nav-link`} onClick={() => {setBuyMenuOpen(true)}} style={{marginLeft: mobile?'0px':'12px', marginRight: mobile?'4px':'12px'}}>

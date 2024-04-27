@@ -109,7 +109,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
       {attempting && !hash && (
         <LoadingView onDismiss={wrappedOndismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            <TYPE.body fontSize={20}>Withdrawing {stakingInfo?.stakedAmount?.toSignificant(4)} QUICK-V2</TYPE.body>
+            <TYPE.body fontSize={20}>Withdrawing {stakingInfo?.stakedAmount?.toSignificant(4)} DOG-V2</TYPE.body>
             <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmountA?.toSignificant(4)} {stakingInfo?.rewardTokenA?.symbol}</TYPE.body>
             <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmountB?.toSignificant(4)} {stakingInfo?.rewardTokenB?.symbol}</TYPE.body>
           </AutoColumn>
@@ -119,7 +119,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
         <SubmittedView onDismiss={wrappedOndismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Withdrew QUICK-V2!</TYPE.body>
+            <TYPE.body fontSize={20}>Withdrew DOG-V2!</TYPE.body>
             <TYPE.body fontSize={20}>Claimed {stakingInfo?.rewardTokenA?.symbol} and {stakingInfo?.rewardTokenB?.symbol}!</TYPE.body>
           </AutoColumn>
         </SubmittedView>

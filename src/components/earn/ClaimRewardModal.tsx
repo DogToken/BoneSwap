@@ -78,7 +78,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
               <TYPE.body fontWeight={600} fontSize={36}>
                 {stakingInfo?.earnedAmount?.toSignificant(6)}
               </TYPE.body>
-              <TYPE.body>Unclaimed dQUICK</TYPE.body>
+              <TYPE.body>Unclaimed sDOG</TYPE.body>
             </AutoColumn>
           )}
           { stakingInfo?.earnedAmount && stakingInfo?.earnedAmount && (
@@ -86,7 +86,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
               <TYPE.body fontWeight={600} fontSize={36}>
                 {stakingInfo?.earnedAmount?.toSignificant(6)}
               </TYPE.body>
-              <TYPE.body>Unclaimed QUICK/dQUICK</TYPE.body>
+              <TYPE.body>Unclaimed DOG/sDOG</TYPE.body>
             </AutoColumn>
           )}
           <TYPE.subHeader style={{ textAlign: 'center' }}>
@@ -100,8 +100,8 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
       {attempting && !hash && (
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            { !stakingInfo?.ended && <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmount?.toSignificant(6)} dQUICK</TYPE.body>}
-            { stakingInfo?.ended && <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmount?.toSignificant(6)} QUICK/dQUICK</TYPE.body>}
+            { !stakingInfo?.ended && <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmount?.toSignificant(6)} sDOG</TYPE.body>}
+            { stakingInfo?.ended && <TYPE.body fontSize={20}>Claiming {stakingInfo?.earnedAmount?.toSignificant(6)} DOG/sDOG</TYPE.body>}
           </AutoColumn>
         </LoadingView>
       )}
@@ -109,8 +109,8 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            { !stakingInfo?.ended && <TYPE.body fontSize={20}>Claimed dQUICK!</TYPE.body>}
-            { stakingInfo?.ended && <TYPE.body fontSize={20}>Claimed QUICK/dQUICK!</TYPE.body>}
+            { !stakingInfo?.ended && <TYPE.body fontSize={20}>Claimed sDOG!</TYPE.body>}
+            { stakingInfo?.ended && <TYPE.body fontSize={20}>Claimed DOG/sDOG!</TYPE.body>}
           </AutoColumn>
         </SubmittedView>
       )}

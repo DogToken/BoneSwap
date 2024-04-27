@@ -77,7 +77,7 @@ export default function LairCard({ lairInfo }: { lairInfo: LairInfo }) {
       <TopSection>
         <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24} />
         <TYPE.white fontWeight={600} fontSize={24} style={{ marginLeft: '8px' }}>
-          QUICK-dQUICK
+          DOG-sDOG
           
         </TYPE.white>
         <StyledInternalLink to={`/dquick`} style={{ width: '100%' }}>
@@ -89,7 +89,7 @@ export default function LairCard({ lairInfo }: { lairInfo: LairInfo }) {
 
       <StatContainer>
         <RowBetween>
-          <TYPE.white> Total QUICK</TYPE.white>
+          <TYPE.white> Total DOG</TYPE.white>
           <TYPE.white>
             { lairInfo ? lairInfo.totalQuickBalance.toFixed(2, {groupSeparator: ','}): 0 }
           </TYPE.white>
@@ -99,12 +99,12 @@ export default function LairCard({ lairInfo }: { lairInfo: LairInfo }) {
           <TYPE.white>{APY.toFixed(4)} %</TYPE.white>
         </RowBetween>
         <RowBetween>
-          <TYPE.white> QUICK Rate </TYPE.white>
+          <TYPE.white> DOG Rate </TYPE.white>
           <TYPE.white>{`${lairInfo.dQUICKtoQUICK
-            ?.toFixed(4, { groupSeparator: ',' })} QUICK / dQUICK`}</TYPE.white>
+            ?.toFixed(4, { groupSeparator: ',' })} DOG / sDOG`}</TYPE.white>
         </RowBetween>
         <RowBetween>
-          <TYPE.white>Your dQUICK Balance </TYPE.white>
+          <TYPE.white>Your sDOG Balance </TYPE.white>
           <TYPE.white>{`${lairInfo.dQUICKBalance
             ?.toFixed(2, { groupSeparator: ',' })}`}</TYPE.white>
         </RowBetween>

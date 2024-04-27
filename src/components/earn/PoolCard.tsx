@@ -186,7 +186,7 @@ export default function PoolCard({ stakingInfo, isOld }: { stakingInfo: StakingI
         <RowBetween style={{ marginTop: '13px' }}>
           <TYPE.white> Pool rate </TYPE.white>
           <TYPE.white>{`${stakingInfo.totalRewardRate
-            ?.toFixed(2, { groupSeparator: ',' }).replace(/[.,]00$/, "")} dQUICK / day`}</TYPE.white>
+            ?.toFixed(2, { groupSeparator: ',' }).replace(/[.,]00$/, "")} sDOG / day`}</TYPE.white>
         </RowBetween> </span>) :(
           <RowBetween>
           <TYPE.white> Status </TYPE.white>
@@ -241,7 +241,7 @@ export default function PoolCard({ stakingInfo, isOld }: { stakingInfo: StakingI
               </span>
               {`${stakingInfo.rewardRate
                 ?.multiply(`${60 * 60 * 24}`)
-                ?.toSignificant(4, { groupSeparator: ',' })} dQUICK / day`}
+                ?.toSignificant(4, { groupSeparator: ',' })} sDOG / day`}
             </TYPE.black>
           </BottomSection>
 

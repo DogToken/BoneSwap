@@ -224,7 +224,7 @@ export default function ManageOld({
               {stakingInfo?.totalRewardRate
                 ?.multiply((60 * 60 * 24).toString())
                 ?.toFixed(2, { groupSeparator: ',' })?.replace(/[.,]00$/, "") ?? '-'}
-              {' QUICK / day'}
+              {' DOG / day'}
             </TYPE.body>
           </AutoColumn>
         </PoolData>
@@ -237,11 +237,11 @@ export default function ManageOld({
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-      <TYPE.white fontWeight={600}>Step 1. Get {(stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "QUICK-V2")} Liquidity tokens</TYPE.white>
+      <TYPE.white fontWeight={600}>Step 1. Get {(stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "DOG-V2")} Liquidity tokens</TYPE.white>
               </RowBetween>
               <RowBetween style={{ marginBottom: '1rem' }}>
                 <TYPE.white fontSize={14}>
-                  { (stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "QUICK-V2") + " tokens are required. Once you've added liquidity to the " + currencyA?.symbol + "-" + currencyB?.symbol + " pool you can stake your liquidity tokens on " + (stakingInfo?.lp && stakingInfo?.lp !== "" ? "the Aavegotchi page" : "this page.")}
+                  { (stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "DOG-V2") + " tokens are required. Once you've added liquidity to the " + currencyA?.symbol + "-" + currencyB?.symbol + " pool you can stake your liquidity tokens on " + (stakingInfo?.lp && stakingInfo?.lp !== "" ? "the Aavegotchi page" : "this page.")}
                 
                 </TYPE.white>
               </RowBetween>
@@ -299,7 +299,7 @@ export default function ManageOld({
                 : `${valueOfMyStakedAmountInBaseToken?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ETH`}
                   </TYPE.white>
                   <TYPE.white>
-                  {stakingInfo?.name && stakingInfo?.name && stakingInfo.name !== '' ? stakingInfo.name : 'QUICK-V2 ' + ((currencyA?.symbol !== undefined ? currencyA?.symbol : '') + '-' + (currencyB?.symbol !== undefined ? currencyB?.symbol: ''))}
+                  {stakingInfo?.name && stakingInfo?.name && stakingInfo.name !== '' ? stakingInfo.name : 'DOG-V2 ' + ((currencyA?.symbol !== undefined ? currencyA?.symbol : '') + '-' + (currencyB?.symbol !== undefined ? currencyB?.symbol: ''))}
                   </TYPE.white>
                 </RowBetween>
               </AutoColumn>
@@ -311,7 +311,7 @@ export default function ManageOld({
             <AutoColumn gap="sm">
               <RowBetween>
                 <div>
-                  <TYPE.black>Your unclaimed QUICK</TYPE.black>
+                  <TYPE.black>Your unclaimed DOG</TYPE.black>
                 </div>
                 {stakingInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, stakingInfo?.earnedAmount?.raw) && (
                   <ButtonEmpty
@@ -344,7 +344,7 @@ export default function ManageOld({
                   {stakingInfo?.rewardRate
                     ?.multiply((60 * 60 * 24).toString())
                     ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
-                  {' QUICK / day'}
+                  {' DOG / day'}
                 </TYPE.black>
               }
               </RowBetween>
@@ -355,14 +355,14 @@ export default function ManageOld({
           <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
             ⭐️
           </span>
-          When you withdraw, the contract will automagically claim QUICK on your behalf!
+          When you withdraw, the contract will automagically claim DOG on your behalf!
         </TYPE.main>
 
         {!showAddLiquidityButton && (
           <DataRow style={{ marginBottom: '1rem' }}>
             { !stakingInfo?.ended && 
             <ButtonPrimary padding="8px" borderRadius="8px" width="160px" onClick={handleDepositClick}>
-              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : stakingInfo  && stakingInfo?.name !== '' ? 'Deposit ' + stakingInfo?.name + " Tokens": 'Deposit QUICK-V2 LP Tokens'}
+              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : stakingInfo  && stakingInfo?.name !== '' ? 'Deposit ' + stakingInfo?.name + " Tokens": 'Deposit DOG-V2 LP Tokens'}
             </ButtonPrimary>
             } 
 
@@ -381,7 +381,7 @@ export default function ManageOld({
           </DataRow>
         )}
         {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
-          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} {stakingInfo?.name  !== '' ? stakingInfo?.name : 'QUICK-V2 LP'} tokens available</TYPE.main>
+          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} {stakingInfo?.name  !== '' ? stakingInfo?.name : 'DOG-V2 LP'} tokens available</TYPE.main>
         )}
       </PositionInfo>
     </PageWrapper>

@@ -91,7 +91,7 @@ export default function ManageLair() {
     <PageWrapper gap="lg" justify="center">
       <RowBetween style={{ gap: '24px' }}>
         <TYPE.mediumHeader style={{ margin: 0 }}>
-        Dragon's Lair
+        Puppy Basket
         </TYPE.mediumHeader>
         <DoubleCurrencyLogo currency0={currency0 ?? undefined} currency1={currency1 ?? undefined} size={24} />
       </RowBetween>
@@ -99,7 +99,7 @@ export default function ManageLair() {
       <DataRow style={{ gap: '24px' }}>
         <PoolData>
           <AutoColumn gap="sm">
-            <TYPE.body style={{ margin: 0 }}>Total QUICK</TYPE.body>
+            <TYPE.body style={{ margin: 0 }}>Total DOG</TYPE.body>
             <TYPE.body fontSize={24} fontWeight={500}>
             { lairInfo ? lairInfo.totalQuickBalance.toFixed(2, {groupSeparator: ','}): 0 }
             </TYPE.body>
@@ -107,10 +107,10 @@ export default function ManageLair() {
         </PoolData>
         <PoolData>
           <AutoColumn gap="sm">
-            <TYPE.body style={{ margin: 0 }}>QUICK Rate</TYPE.body>
+            <TYPE.body style={{ margin: 0 }}>DOG Rate</TYPE.body>
             <TYPE.body fontSize={24} fontWeight={500}>
             {`${lairInfo.dQUICKtoQUICK
-            ?.toFixed(8, { groupSeparator: ',' })} QUICK / dQUICK`}
+            ?.toFixed(8, { groupSeparator: ',' })} DOG / sDOG`}
             </TYPE.body>
           </AutoColumn>
         </PoolData>
@@ -123,11 +123,11 @@ export default function ManageLair() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-      <TYPE.white fontWeight={600}>Step 1. Get {(stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "QUICK-V2")} Liquidity tokens</TYPE.white>
+      <TYPE.white fontWeight={600}>Step 1. Get {(stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "DOG-V2")} Liquidity tokens</TYPE.white>
               </RowBetween>
               <RowBetween style={{ marginBottom: '1rem' }}>
                 <TYPE.white fontSize={14}>
-                  { (stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "QUICK-V2") + " tokens are required. Once you've added liquidity to the " + currencyA?.symbol + "-" + currencyB?.symbol + " pool you can stake your liquidity tokens on " + (stakingInfo?.lp && stakingInfo?.lp !== "" ? "the Aavegotchi page" : "this page.")}
+                  { (stakingInfo?.name && stakingInfo?.name !== "" ? stakingInfo.name : "DOG-V2") + " tokens are required. Once you've added liquidity to the " + currencyA?.symbol + "-" + currencyB?.symbol + " pool you can stake your liquidity tokens on " + (stakingInfo?.lp && stakingInfo?.lp !== "" ? "the Aavegotchi page" : "this page.")}
                 
                 </TYPE.white>
               </RowBetween>
@@ -171,7 +171,7 @@ export default function ManageLair() {
               <CardNoise />
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>Your QUICK balance</TYPE.white>
+                  <TYPE.white fontWeight={600}>Your DOG balance</TYPE.white>
                 </RowBetween>
                 <RowBetween style={{ alignItems: 'baseline' }}>
                   <TYPE.white fontSize={36} fontWeight={600}>
@@ -179,7 +179,7 @@ export default function ManageLair() {
                       ?.toFixed(10, { groupSeparator: ',' })}`}
                   </TYPE.white>
                   <TYPE.white>
-                    QUICK
+                    DOG
                   </TYPE.white>
                 </RowBetween>
               </AutoColumn>
@@ -191,7 +191,7 @@ export default function ManageLair() {
           <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
             ⭐️
           </span>
-          When you withdraw, the contract will automagically claim QUICK on your behalf!
+          When you withdraw, the contract will automagically claim DOG on your behalf!
         </TYPE.main>
 
         { (
@@ -216,7 +216,7 @@ export default function ManageLair() {
           </DataRow>
         )}
         {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
-          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} QUICK tokens available</TYPE.main>
+          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} DOG tokens available</TYPE.main>
         )}
       </PositionInfo>
     </PageWrapper>

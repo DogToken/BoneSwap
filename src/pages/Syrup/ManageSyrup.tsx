@@ -176,7 +176,7 @@ export default function ManageSyrup({
             <TYPE.body fontSize={24} fontWeight={500}>
             {valueOfTotalStakedAmountInUSDC
                 ? `$${thousands_separators(valueOfTotalStakedAmountInUSDC)}`
-                : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} QUICK`}
+                : `${syrupInfo?.totalStakedAmount?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} DOG`}
             </TYPE.body>
           </AutoColumn>
         </PoolData>

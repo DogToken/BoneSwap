@@ -5,13 +5,13 @@ import { injected, walletconnect, walletlink, portis, arkaneconnect, safeApp, bi
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-export const LAIR_ADDRESS = '0xf28164a485b0b2c90639e47b0f377b4a438a16b1';
+export const LAIR_ADDRESS = '0x77e954B72d3E706563F631849b1e734B4806dcF7';
 
-export const QUICK_ADDRESS = '0x831753DD7087CaC61aB5644b308642cc1c33Dc13';
+export const QUICK_ADDRESS = '0x3a8F85f94f59B213F33724b2559B16fEE36A24b2';
 
 export const QUICK_ADDRESS_MUMBAI = "0x55bee1bd3eb9986f6d2d963278de09ee92a3ef1d";
 
-export const CONVERTER_ADDRESS = "0x333068d06563a8dfdbf330a0e04a9d128e98bf5a";
+export const CONVERTER_ADDRESS = "0xe9DD4513d7c04Cf90Ae3339e16C23ca90c952d95";
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -32,7 +32,7 @@ export const UNITOKEN = new Token(ChainId.MATIC, '0xb33EaAd8d922B1083446DC23f610
 //export const TT01 = new Token(ChainId.MATIC, '0x55BeE1bD3Eb9986f6d2d963278de09eE92a3eF1D', 18, 'TT01', 'Test Token 01')
 //export const TT02 = new Token(ChainId.MATIC, '0xF6Ad3CcF71Abb3E12beCf6b3D2a74C963859ADCd', 18, 'TT01', 'Test Token 02')
 export const ETHER = new Token(ChainId.MATIC, '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619', 18, 'ETH', 'Ether')
-export const QUICK = new Token(ChainId.MATIC, '0x831753DD7087CaC61aB5644b308642cc1c33Dc13', 18, 'QUICK', 'QuickSwap')
+export const QUICK = new Token(ChainId.MATIC, '0x3a8F85f94f59B213F33724b2559B16fEE36A24b2', 18, 'DOG', 'DogSwap')
 export const WBTC  = new Token(ChainId.MATIC, '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6', 18, 'wBTC', 'Wrapped Bitcoin')
 export const IGG  = new Token(ChainId.MATIC, '0xe6FC6C7CB6d2c31b359A49A33eF08aB87F4dE7CE', 18, 'IGG', 'IG Gold')
 export const OM  = new Token(ChainId.MATIC, '0xC3Ec80343D2bae2F8E680FDADDe7C17E71E114ea', 18, 'OM', 'OM Mantra DAO')
@@ -83,7 +83,7 @@ export const DEFI5  = new Token(ChainId.MATIC, '0x42435F467D33e5C4146a4E8893976e
 //export const MDEF  = new Token(ChainId.MATIC, '0x82B6205002ecd05e97642D38D61e2cFeaC0E18cE', 9, 'mDEF', 'Matic Deflect Protocol')
 //export const DMT  = new Token(ChainId.MATIC, '0xd28449BB9bB659725aCcAd52947677ccE3719fD7', 18, 'DMT', 'Dark Matter Token')
 export const DEGEN  = new Token(ChainId.MATIC, '0x8a2870fb69A90000D6439b7aDfB01d4bA383A415', 18, 'DEGEN', 'DEGEN Index')
-export const DQUICK = new Token(ChainId.MATIC, '0xf28164A485B0B2C90639E47b0f377b4a438a16B1', 18, 'dQUICK', 'Dragon QUICK')
+export const DQUICK = new Token(ChainId.MATIC, '0x77e954B72d3E706563F631849b1e734B4806dcF7', 18, 'sDOG', 'Sleepy Dog')
 export const MONA  = new Token(ChainId.MATIC, '0x6968105460f67c3BF751bE7C15f92F5286Fd0CE5', 18, 'MONA', 'Monavale')
 export const WISE  = new Token(ChainId.MATIC, '0xB77e62709e39aD1cbeEBE77cF493745AeC0F453a', 18, 'WISE', 'Wise Token')
 export const CC10  = new Token(ChainId.MATIC, '0x9c49BA0212Bb5Db371e66b59D1565b7c06E4894e', 18, 'CC10', 'Cryptocurrency Top Tokens Index')
@@ -399,7 +399,7 @@ export const MATICX = new Token(ChainId.MATIC, '0xfa68FB4628DFF1028CFEc22b4162FC
 export const ACRE = new Token(ChainId.MATIC, '0x011734f6Ed20E8D011d85Cf7894814B897420acf', 18, 'ACRE', 'Arable Protocol')
 export const GOO = new Token(ChainId.MATIC, '0x6F3Cc27E17a0f2e52D8e7693FF0d892Cea1854bF', 9, 'GOO', 'Goo')
 export const NSFW = new Token(ChainId.MATIC, '0x8f006D1e1D9dC6C98996F50a4c810F17a47fBF19', 18, 'NSFW', 'Pleasure Coin')
-export const QUICKNEW = new Token(ChainId.MATIC, '0xB5C064F955D8e7F38fE0460C556a72987494eE17', 18, 'QUICK(NEW)', 'QuickSwap(NEW)')
+export const QUICKNEW = new Token(ChainId.MATIC, '0xC6F0B261e166FB3b59bB7A6223892F0e539BDaDc', 18, 'DOG', 'DOG')
 
 export const PS1 = new Token(ChainId.MATIC, '0x32Cd1BCB75473845b5d1dB6ecE60AEC6E41d8518', 18, 'PS1', 'PolysportsToken')
 export const EMT = new Token(ChainId.MATIC, '0x3fB256CFefedb6A54De7465c0EE86dC574AE464D', 18, 'EMT', 'Emanate')
@@ -423,6 +423,8 @@ export const PAXG = new Token(ChainId.MATIC, '0x553d3D295e0f695B9228246232eDF400
 export const ALGB = new Token(ChainId.MATIC, '0x0169eC1f8f639B32Eec6D923e24C2A2ff45B9DD6', 18, 'ALGB', 'Algebra')
 export const SFL = new Token(ChainId.MATIC, '0xD1f9c58e33933a993A3891F8acFe05a68E1afC05', 18, 'SFL', 'Sunflower Land')
 
+export const XBONE = new Token(ChainId.MATIC, '0xDf33126f2906013e79F58b250AD719b072ac2738', 18, 'xBONE', 'xBONE')
+
 
 //export const TT = new Token(ChainId.MATIC, '0x16887befea6772175240a8b3aa797c460f80a08e', 18, 'TT', 'Test Token')
 export const MATIC = WETH[ChainId.MATIC];
@@ -432,7 +434,7 @@ export const PROPOSAL_LENGTH_IN_DAYS = 7
 export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'//TODO: MATIC
 
 export const UNI: { [chainId in ChainId]: Token } = {
-  [ChainId.MATIC]: new Token(ChainId.MATIC, QUICK_ADDRESS, 18, 'QUICK', 'Quickswap'),
+  [ChainId.MATIC]: new Token(ChainId.MATIC, QUICK_ADDRESS, 18, 'DOG', 'DOG'),
   [ChainId.MUMBAI]: new Token(ChainId.MUMBAI, QUICK_ADDRESS_MUMBAI, 18, 'QUICK', 'Quickswap')
 }
 

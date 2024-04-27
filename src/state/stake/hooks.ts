@@ -20,14 +20,14 @@ import {
   TEL,
   DERC,
   WSG,
-  FUSE,
   PDDOLLAR,
   QUIDD,
   FIN,
   QUICKNEW,
   LCD,
   TUSD,
-  PAE} from '../../constants'
+  PAE,
+  XBONE} from '../../constants'
 import { STAKING_REWARDS_INTERFACE, STAKING_DUAL_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData, useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'
@@ -45,7 +45,7 @@ dayjs.extend(utc);
 
 const web3 = new Web3("https://polygon-rpc.com/");
 
-export const STAKING_GENESIS = 1620842940;
+export const STAKING_GENESIS = 1714250884;
 
 export const REWARDS_DURATION_DAYS = 7;
 
@@ -107,15 +107,15 @@ export const OLD_SYRUP_REWARDS_INFO: {
 } = {
   [ChainId.MATIC]: [
     {
-      token: FUSE,
-      stakingRewardAddress: '0xF2f0eadC00FE2009B64D5B735F0F06B45C502D15',
-      ended: true,
+      token: QUICK,
+      stakingRewardAddress: '0xD479406F55C4B2C3976C5EC1a41347CA6Ac90128',
+      ended: false,
       lp: '',
       name: '',
       baseToken: ETHER,
       rate: 3333.33,
-      ending: 1652570793,
-      stakingToken: QUICK
+      ending: 2534700689,
+      stakingToken: XBONE
     },  
     {
       token: DERC,

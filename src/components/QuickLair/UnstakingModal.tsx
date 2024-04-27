@@ -97,7 +97,7 @@ export default function UnstakingModal({ isOpen, onDismiss, lairInfo }: StakingM
             </AutoColumn>
           )}
           <TYPE.subHeader style={{ textAlign: 'center' }}>
-            When you withdraw, your QUICK is claimed and your dQUICK tokens are burned.
+            When you withdraw, your DOG is claimed and your dQUICK tokens are burned.
           </TYPE.subHeader>
           <ButtonError disabled={!!error} error={!!error && !!lairInfo?.dQUICKBalance} onClick={onWithdraw}>
             {error ?? 'Withdraw & Claim'}

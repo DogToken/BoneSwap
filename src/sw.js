@@ -16,7 +16,7 @@ self.addEventListener('install', () => {
     
     console.log("new service worker activate")
     self.registration.unregister().then(() => {
-      console.log('QUICKSWAP Safety Worker - unregistered old service worker');
+      console.log('DogSwap Safety Worker - unregistered old service worker');
     });
   
     self.clients.matchAll({

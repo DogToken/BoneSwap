@@ -118,7 +118,7 @@ export default function StakingModal({ isOpen, onDismiss, lairInfo, userLiquidit
 
             <TYPE.black>
               {hypotheticalRewardRate.toSignificant(4, { groupSeparator: ',' })}{' '}
-              dQUICK / QUICK
+              sDOG / DOG
             </TYPE.black>
           </HypotheticalRewardRate>
 
@@ -145,8 +145,8 @@ export default function StakingModal({ isOpen, onDismiss, lairInfo, userLiquidit
       {attempting && !hash && (
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            <TYPE.largeHeader>Depositing QUICK Balance</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} QUICK</TYPE.body>
+            <TYPE.largeHeader>Depositing DOG Balance</TYPE.largeHeader>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} DOG</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -154,7 +154,7 @@ export default function StakingModal({ isOpen, onDismiss, lairInfo, userLiquidit
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} QUICK-V2</TYPE.body>
+            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} DOG-V2</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

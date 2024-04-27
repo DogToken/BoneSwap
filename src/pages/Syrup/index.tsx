@@ -329,11 +329,11 @@ export default function Syrup() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Dragon's Syrup</TYPE.white>
+                <TYPE.white fontWeight={600}>Sleepy Sofa</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                  Deposit your QUICK(OLD)/QUICK(NEW) tokens to earn more.
+                  Deposit your DOG/sDOG tokens to earn more.
                 </TYPE.white>
                 
               </RowBetween>{' '}
